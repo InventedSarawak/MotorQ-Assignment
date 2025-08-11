@@ -1,6 +1,6 @@
 import mongoose, { Schema, model, Document, Types } from 'mongoose'
 
-const EngineStatusOptions = ['On', 'Off', 'Idle']
+const EngineStatusOptions = ['on', 'off', 'idle']
 
 export interface ITelemetry extends Document {
     coordinates: {
@@ -8,7 +8,7 @@ export interface ITelemetry extends Document {
         latitude: number
     }
     speed: number
-    engineStatus: 'On' | 'Off' | 'Idle'
+    engineStatus: 'on' | 'off' | 'idle'
     fuelLevel: number
     odometer: number
     diagnosticCode: string
@@ -30,4 +30,4 @@ const telemetrySchema = new Schema<ITelemetry>(
     { timestamps: true }
 )
 
-export const Telemetry = model<ITelemetry>('Vehicle', telemetrySchema)
+export const Telemetry = mongoose.models.Telemetry || model<ITelemetry>('Telemetry', telemetrySchema)

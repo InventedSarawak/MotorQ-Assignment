@@ -1,19 +1,19 @@
 import mongoose, { Schema, model, Document, Types } from 'mongoose'
 
-const FleetIDOptions = ['Corporate', 'Rental', 'Personal']
+const FleetIDOptions = ['corporate', 'rental', 'personal']
 
-const RegistrationStatusOptions = ['Active', 'Maintenance', 'Decommissioned']
+const RegistrationStatusOptions = ['active', 'maintenance', 'decommissioned']
 
-const EngineStatusOptions = ['On', 'Off', 'Idle']
+const EngineStatusOptions = ['on', 'off', 'idle']
 
 export interface IVehicle extends Document {
     VIN: string
     manufacturer: string
     vehicle_model: string
-    fleetID: 'Corporate' | 'Rental' | 'Personal'
+    fleetID: 'corporate' | 'rental' | 'personal'
     owner: string
-    registrationStatus: 'Active' | 'Maintenance' | 'Decommissioned'
-    engineStatus: 'On' | 'Off' | 'Idle'
+    registrationStatus: 'active' | 'maintenance' | 'decommissioned'
+    engineStatus: 'on' | 'off' | 'idle'
     fuelLevel: number
 }
 
@@ -28,4 +28,4 @@ const vehicleSchema = new Schema<IVehicle>({
     fuelLevel: { type: Number, required: true, max: 100, min: 0}
 })
 
-export const Vehicle = model<IVehicle>('Vehicle', vehicleSchema)
+export const Vehicle = mongoose.models.Vehicle || model<IVehicle>('Vehicle', vehicleSchema)
