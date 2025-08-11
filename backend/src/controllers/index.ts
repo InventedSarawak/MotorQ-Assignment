@@ -1,1 +1,2 @@
-export { addVehicles } from "./vehicle.controller";
+export { postTelemetryData } from './telemetry.controller'
+export { addVehicles, deleteVehicles, getVehicles } from './vehicle.controller'

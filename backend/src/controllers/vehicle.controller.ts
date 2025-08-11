@@ -82,4 +82,16 @@ const deleteVehicles = asyncHandler(async (req, res) => {
     res.status(200).json(new ApiResponse(200, 'Vehicle Deleted Successfully'))
 })
 
-export { addVehicles, getVehicles, deleteVehicles }
+const getActiveInactiveCount = asyncHandler(async (req, res) => {
+    const activeVehicleCount = await Vehicle.countDocuments({ active: true })
+    const inactiveVehicleCount = await Vehicle.countDocuments({ active: false })
+    res.status(200).json(
+        new ApiResponse(
+            200,
+            { 'Active Vehicles': activeVehicleCount, inactiveVehicleCount: inactiveVehicleCount },
+            'Counts Fetched Successfully'
+        )
+    )
+})
+
+export { addVehicles, getVehicles, deleteVehicles, getActiveInactiveCount }

@@ -15,6 +15,7 @@ export interface IVehicle extends Document {
     registrationStatus: 'active' | 'maintenance' | 'decommissioned'
     engineStatus: 'on' | 'off' | 'idle'
     fuelLevel: number
+    active: boolean
 }
 
 const vehicleSchema = new Schema<IVehicle>({
@@ -25,7 +26,8 @@ const vehicleSchema = new Schema<IVehicle>({
     owner: { type: String, required: true },
     registrationStatus: { type: String, enum: RegistrationStatusOptions, required: true },
     engineStatus: { type: String, enum: EngineStatusOptions, required: true },
-    fuelLevel: { type: Number, required: true, max: 100, min: 0}
+    fuelLevel: { type: Number, required: true, max: 100, min: 0 },
+    active: { type: Boolean }
 })
 
 export const Vehicle = mongoose.models.Vehicle || model<IVehicle>('Vehicle', vehicleSchema)

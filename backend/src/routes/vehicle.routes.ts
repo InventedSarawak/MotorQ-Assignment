@@ -1,6 +1,5 @@
 import { Router } from 'express'
-import { addVehicles } from '../controllers'
-import { deleteVehicles, getVehicles } from '../controllers/vehicle.controller'
+import { addVehicles, getVehicles, deleteVehicles } from '../controllers'
 
 const vehicleRoutes = Router()
 

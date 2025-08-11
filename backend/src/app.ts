@@ -5,6 +5,7 @@ import cors from 'cors'
 import { swaggerUi, swaggerSpec } from './config/swagger.config'
 import testRoutes from './routes/test.routes'
 import vehicleRoutes from './routes/vehicle.routes'
+import TelemetryRoutes from './routes/telemetry.route'
 
 const app = express()
 
@@ -20,5 +21,6 @@ app.get('/', (req, res) => {
 
 app.use('/api', testRoutes)
 app.use('/api/vehicles', vehicleRoutes)
+app.use('/api/telemetry', TelemetryRoutes)
 
 export default app
