@@ -1,0 +1,28 @@
+{
+    "name": "app",
+    "version": "1.0.0",
+    "description": "app",
+    "main": "index.js",
+    "scripts": {
+        "dev": "\"cd backend && pnpm dev\"",
+        "start": "\"cd backend && pnpm start\"",
+        "format": "prettier --write .",
+        "lint": "\"cd frontend && pnpm lint\"",
+        "lint:fix": "concurrently \"cd backend && pnpm lint:fix\"",
+        "install": "concurrently \"cd backend && pnpm install\"",
+        "test": "cd backend && pnpm test"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^8.32.0",
+        "@typescript-eslint/parser": "^8.32.0",
+        "concurrently": "^9.1.2",
+        "eslint": "^9.26.0",
+        "eslint-config-prettier": "^10.1.5",
+        "eslint-plugin-prettier": "^5.4.0",
+        "husky": "^9.1.7",
+        "prettier": "^3.5.3"
+    }
+}
